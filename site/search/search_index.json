@@ -1,0 +1,164 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "\u300a\u8ba1\u7b97\u673a\u7a0b\u5e8f\u7684\u6784\u9020\u548c\u89e3\u91ca\u300b\uff08\u82f1\u8bed\uff1aStructure and Interpretation of Computer Programs\uff0cSICP\uff09\u662f\u4e00\u672c\u5173\u4e8e\u8ba1\u7b97\u673a\u7a0b\u5e8f\u8bbe\u8ba1\u7684\u603b\u4f53\u6027\u89c2\u5ff5\u7684\u57fa\u7840\u6559\u79d1\u4e66\uff0c\u7531\nMIT press\n\u4e0e\nMcGraw-Hill\n\u5171\u540c\u51fa\u7248\u8425\u9500\u3002\u4f5c\u8005\u662f\u9ebb\u7701\u7406\u5de5\u5b66\u9662\u7684\u6559\u6388\u54c8\u5c14\u00b7\u963f\u4f2f\u5c14\u68ee\u3001\u6770\u62c9\u5fb7\u00b7\u6770\u4f0a\u00b7\u8428\u65af\u66fc\uff0c\u6b64\u5916\u6770\u62c9\u5fb7\u00b7\u6770\u4f0a\u00b7\u8428\u65af\u66fc\u7684\u59bb\u5b50\nJulie Sussman\n\u4e5f\u6709\u53c2\u4e0e\u672c\u4e66\u7684\u5236\u4f5c\u3002\u5c01\u5e95\u7684\u4f5c\u8005\u56fe\u50cf\u662f\u7531\u5176\u5b9e\u9a8c\u5ba4\u7684\u540c\u50da\nNick Papadakis\n\u540e\u5236\u7684\u5408\u6210\u7167\u3002\u4e66\u4e2d\u4f7f\u7528\u7a0b\u5e8f\u8bbe\u8ba1\u8bed\u8a00\nLisp\n\u7684\u65b9\u8a00\nScheme\n\u6765\u89e3\u91ca\u8ba1\u7b97\u673a\u79d1\u5b66\u7684\u6838\u5fc3\u6982\u5ff5\uff0c\u5305\u62ec\u62bd\u8c61\uff08\nabstraction\n\uff09\uff0c\u9012\u5f52\uff08\nrecursion\n\uff09\uff0c\u89e3\u91ca\u5668\uff08\ninterpreters\n\uff09\uff0c\u4ee5\u53ca\u5143\u8bed\u8a00\u62bd\u8c61(\nmetalinguistic abstraction\n\uff09\u3002\u5177\u4f53\u800c\u5fae\u5730\u7531\u5b8f\u89c2\u5230\u5fae\u89c2\u7ed9\u51fa\u6e05\u695a\u5730\u8f6e\u5ed3\u4e0e\u8109\u7edc\u3002", 
+            "title": "\u4e3b\u9875"
+        }, 
+        {
+            "location": "/chp1/1/", 
+            "text": "1.1.1 \u8868\u8fbe\u5f0f\n\n\nex1.1\n  \n\n\u76f4\u63a5\u5728\u89e3\u91ca\u5668\u8f93\u5165\u8868\u8fbe\u5f0f\u5c31\u80fd\u5f97\u5230\u7ed3\u679c\uff1a\n\n\n 10\n\n 12\n\n 8\n\n 3\n\n 6\n\n a\n\n b\n\n 19\n\n #f\n\n 4\n\n 16\n\n 6\n\n 16\n\n\n\n\n1.1.2 \u547d\u540d\u548c\u73af\u5883\n\n\nex1.2\n\n\n(/ (+ 5\n       4\n       (- 2 (- 3 (+ 6 (/ 4 5)))))\n    (* 3\n       (- 6 2)\n       (- 2 7)))\n\n\n\n\n\u8ba1\u7b97\u7ed3\u679c\u662f\uff1a-0.24666666666666667, \u6216\u8005 -37/150\n\n\n1.1.3 \u7ec4\u5408\u5f0f\u7684\u6c42\u503c\n\n\nex1.3\n\n\n(define (square x) (* x x))\n\n(define (sumsquares x y) (+ (square x) (square y)))\n\n(define (sqsumlargest a b c)\n        (cond  \n                ((and (\n= a c) (\n= b c)) (sumsquares a b))\n                ((and (\n= b a) (\n= c a)) (sumsquares b c))\n                ((and (\n= a b) (\n= c b)) (sumsquares a c))))\n\n\n\n\n(sqsumlargest 1 2 3)\n\n 13\n(sqsumlargest 1 1 1)\n\n 2\n(sqsumlargest 1 2 2)\n\n 8\n(sqsumlargest 1 1 2)\n\n 5\n\n\n\n\n1.1.4 \u590d\u5408\u8fc7\u7a0b\n\n\nex1.4\n   \n\nif\u8bed\u53e5\u8fd4\u56de - \u6216+\uff0c\u7136\u540e\u5e94\u7528\u4e8e\u64cd\u4f5c\u6570\u3002\n\n\n(define (a-plus-abs-b a b)\n    ((if (\n b 0) + -) a b))\n\n\n\n\n(a-plus-abs-b 1 -3)\n((if (\n -3 0) + -) 1 -3)\n((if #f + -) 1 -3)\n(- 1 -3)\n\n\n 4\n\n(a-plus-abs-b 1 3)\n((if (\n 3 0) + -) 1 -3)\n((if #t + -) 1 3)\n(+ 1 3)\n\n\n 4\n\n\n\n\n1.1.5 \u8fc7\u7a0b\u5e94\u7528\u7684\u4ee3\u6362\u6a21\u578b\n\n\nex1.5\n  \n\n\u4f7f\u7528\u5e94\u7528\u987a\u5e8f\u8bc4\u4f30\uff0c\uff08\u6d4b\u8bd50\uff08p\uff09\uff09\u7684\u8bc4\u4f30\u6c38\u8fdc\u4e0d\u4f1a\u7ec8\u6b62\uff0c\u56e0\u4e3a\uff08p\uff09\u65e0\u9650\u6269\u5c55\u5230\u81ea\u8eab\uff1a\n\n\n(test 0 (p))\n\n(test 0 (p))\n\n(test 0 (p))\n\n\n\n\n\u4f7f\u7528\u6b63\u6001\u987a\u5e8f\u8bc4\u4f30\uff0c\u8868\u8fbe\u5f0f\u9010\u6b65\u8bc4\u4f30\u4e3a0\uff1a\n\n\n(test 0 (p))\n\n(if (= 0 0) 0 (p))\n\n(if #t 0 (p))\n\n0\n\n\n\n\n1.1.6 \u6761\u4ef6\u8868\u8fbe\u5f0f\u548c\u8c13\u8bcd\n\n\nex1.6\n  \n\n Alyssa \u7684 new-if \u5b9a\u4e49\uff1a\n\n\n(define (new-if predicate then-clause else-clause)\n    (cond (predicate then-clause)\n          (else else-clause)))\n\n\n\n\n\u5148\u4f7f\u7528 new-if \u91cd\u5199\u5e73\u65b9\u6839\uff1a\n\n\n(define (average x y) (/ (+ x y) 2))\n(define (square x) (* x x))\n(define (improve guess x) (average guess (/ x guess)))\n(define (good-enough? guess x) (\n (abs (- (square guess) x)) 0.001))\n(define (sqrt-iter guess x)\n  (if (good-enough? guess x)\n      guess\n      (sqrt-iter (improve guess x) x)))\n(define (sqrt x) (sqrt-iter 1.0 x))\n(sqrt 9)\n(sqrt (+ 100 37))\n(sqrt (+ (sqrt 2) (sqrt 3)))\n(square (sqrt 1000))\n\n(define (new-if predicate then-clause else-clause)\n  (cond (predicate then-clause)\n        (else else-clause)))\n(new-if (= 2 3) 0 5)\n(new-if (= 1 1) 0 5)\n(define (new-sqrt-iter guess x)\n  (new-if (good-enough? guess x)\n          guess\n          (sqrt-iter (improve guess x) x)))\n(define (new-sqrt x) (new-sqrt-iter 1.0 x))\n(if (= (    sqrt 9)\n       (new-sqrt 9))\n    1 0)\n(if (= (    sqrt (+ 100 37))\n       (new-sqrt (+ 100 37)))\n    1 0)\n(if (= (    sqrt (+ (    sqrt 2) (    sqrt 3)))\n       (new-sqrt (+ (new-sqrt 2) (new-sqrt 3))))\n    1 0)\n(if (= (square (    sqrt 1000))\n       (square (new-sqrt 1000)))\n    1 0)\n\n\n 3.00009155413138\n\n 11.704699917758145\n\n 1.7739279023207892\n\n 1000.000369924366\n\n 5\n\n 0\n\n 1\n\n 1\n\n 1\n\n 1\n\n\n\n\n1.1.7 \u5b9e\u4f8b\uff1a \u91c7\u7528\u725b\u987f\u6cd5\u6c42\u5e73\u65b9\u6839\n\n\nex1.7\n  \n\n\u5f53\u8ba1\u7b97\u5c0f\u503c\u7684\u5e73\u65b9\u6839\u65f6\uff0c0.001\u7684\u7edd\u5bf9\u5bb9\u5dee\u975e\u5e38\u5927\u3002\u4f8b\u5982\uff0c\u5728\u6211\u4f7f\u7528\u7684\u7cfb\u7edf\u4e0a\uff0c\uff08sqrt 0.0001\uff09\u4ea7\u751f0.03220324381282134\u800c\u4e0d\u662f\u9884\u671f\u76840.01\uff08\u8bef\u5dee\u8d85\u8fc7200\uff05\uff09\u3002\n\n\n(sqrt 0.0001)\n\n\n 0.03230844833048122\n\n\n\n\n\u53e6\u4e00\u65b9\u9762\uff0c\u5bf9\u4e8e\u975e\u5e38\u5927\u7684radicand\u503c\uff0c\u673a\u5668\u7cbe\u5ea6\u4e0d\u80fd\u8868\u793a\u5927\u6570\u4e4b\u95f4\u7684\u5fae\u5c0f\u5dee\u5f02\u3002\u8be5\u7b97\u6cd5\u53ef\u80fd\u6c38\u8fdc\u4e0d\u4f1a\u7ec8\u6b62\uff0c\u56e0\u4e3a\u6700\u4f73\u731c\u6d4b\u7684\u5e73\u65b9\u4e0d\u4f1a\u5728radicand\u76840.001\u8303\u56f4\u5185\uff0c\u5e76\u4e14\u5c1d\u8bd5\u6539\u8fdb\u5b83\u5c06\u7ee7\u7eed\u4ea7\u751f\u76f8\u540c\u7684\u731c\u6d4b[\u5373\uff08\u6539\u8fdb\u731c\u6d4bx\uff09\u5c06\u7b49\u4e8e\u731c\u6d4b]\u3002\u5c1d\u8bd5(sqrt 1000000000000)[12\u4e2a0]\uff0c\u7136\u540e\u5c1d\u8bd5(sqrt 10000000000000)[13\u4e2a0]\u3002\u5728\u6211\u768464\u4f4d\u82f1\u7279\u5c14\u673a\u5668\u4e0a\uff0c12\u4e2a\u96f6\u70b9\u51e0\u4e4e\u7acb\u5373\u4ea7\u751f\u7b54\u6848\uff0c\u800c13\u4e2a\u96f6\u70b9\u8fdb\u5165\u65e0\u9650\u5faa\u73af\u3002\n\n\n(sqrt 1000000000000)\n\n\n 1000000.0\n\n\n\n\n(sqrt 10000000000000)\n\n\n\n\n\n\n\n\u4f7f\u7528\u66ff\u4ee3\u7b56\u7565\uff0csqrt\u5bf9\u5c0f\u6570\u548c\u5927\u6570\u90fd\u6709\u6548\u3002\n\n\n(define (good-enough? guess x) (= guess (improve guess x)))\n\n\n\n\n(sqrt 100000000000000000000)\n\n\n 10000000000.0\n\n\n\n\n(sqrt 0.00000000000000000009)\n\n\n 0.0000000003\n\n\n\n\n1.1.8 \u8fc7\u7a0b\u4f5c\u4e3a\u9ed1\u7bb1\u62bd\u8c61\n\n\nex1.8\n   \n\n\u9996\u5148\uff0c\u5c06\u9898\u76ee\u7ed9\u5b9a\u7684\u7b97\u5f0f\u8f6c\u6362\u6210\u524d\u5e8f\u8868\u8fbe\u5f0f\uff1a\n\n\n(/ (+ (/ x (square y)) (* 2 y))\n   3)\n\n\n\n\n(define (cube x) (* x x x))\n\n(define (square x) (* x x))\n\n(define (cube-root x)(cube-root-iter 1.0 x))\n\n(define (cube-root-iter guess x)          \n    (if (good-enough? guess x)              \n        guess\n        (cube-root-iter (improve guess x) x)))\n\n(define (good-enough? guess x) (\n (abs (- (cube guess) x)) 0.001))\n\n(define (improve guess x)(/ (+ (/ x (square guess)) (* 2 guess)) 3))\n\n(define (square x) (* x x))1 ]=\n (cube-root (* 3 3 3))\n\n\n\n\n(cube-root (* 3 3 3))\n\n\n 3.0000005410641766\n\n(cube-root (* 5 5 5))\n\n\n 5.000000000287929\n\n(cube-root (* 7 7 7))\n\n\n 7.000001795382107", 
+            "title": "1.1 \u7a0b\u5e8f\u8bbe\u8ba1\u7684\u57fa\u672c\u5143\u7d20"
+        }, 
+        {
+            "location": "/chp1/1/#111", 
+            "text": "ex1.1    \n\u76f4\u63a5\u5728\u89e3\u91ca\u5668\u8f93\u5165\u8868\u8fbe\u5f0f\u5c31\u80fd\u5f97\u5230\u7ed3\u679c\uff1a   10  12  8  3  6  a  b  19  #f  4  16  6  16", 
+            "title": "1.1.1 \u8868\u8fbe\u5f0f"
+        }, 
+        {
+            "location": "/chp1/1/#112", 
+            "text": "ex1.2  (/ (+ 5\n       4\n       (- 2 (- 3 (+ 6 (/ 4 5)))))\n    (* 3\n       (- 6 2)\n       (- 2 7)))  \u8ba1\u7b97\u7ed3\u679c\u662f\uff1a-0.24666666666666667, \u6216\u8005 -37/150", 
+            "title": "1.1.2 \u547d\u540d\u548c\u73af\u5883"
+        }, 
+        {
+            "location": "/chp1/1/#113", 
+            "text": "ex1.3  (define (square x) (* x x))\n\n(define (sumsquares x y) (+ (square x) (square y)))\n\n(define (sqsumlargest a b c)\n        (cond  \n                ((and ( = a c) ( = b c)) (sumsquares a b))\n                ((and ( = b a) ( = c a)) (sumsquares b c))\n                ((and ( = a b) ( = c b)) (sumsquares a c))))  (sqsumlargest 1 2 3)  13\n(sqsumlargest 1 1 1)  2\n(sqsumlargest 1 2 2)  8\n(sqsumlargest 1 1 2)  5", 
+            "title": "1.1.3 \u7ec4\u5408\u5f0f\u7684\u6c42\u503c"
+        }, 
+        {
+            "location": "/chp1/1/#114", 
+            "text": "ex1.4     \nif\u8bed\u53e5\u8fd4\u56de - \u6216+\uff0c\u7136\u540e\u5e94\u7528\u4e8e\u64cd\u4f5c\u6570\u3002  (define (a-plus-abs-b a b)\n    ((if (  b 0) + -) a b))  (a-plus-abs-b 1 -3)\n((if (  -3 0) + -) 1 -3)\n((if #f + -) 1 -3)\n(- 1 -3)  4\n\n(a-plus-abs-b 1 3)\n((if (  3 0) + -) 1 -3)\n((if #t + -) 1 3)\n(+ 1 3)  4", 
+            "title": "1.1.4 \u590d\u5408\u8fc7\u7a0b"
+        }, 
+        {
+            "location": "/chp1/1/#115", 
+            "text": "ex1.5    \n\u4f7f\u7528\u5e94\u7528\u987a\u5e8f\u8bc4\u4f30\uff0c\uff08\u6d4b\u8bd50\uff08p\uff09\uff09\u7684\u8bc4\u4f30\u6c38\u8fdc\u4e0d\u4f1a\u7ec8\u6b62\uff0c\u56e0\u4e3a\uff08p\uff09\u65e0\u9650\u6269\u5c55\u5230\u81ea\u8eab\uff1a  (test 0 (p))\n\n(test 0 (p))\n\n(test 0 (p))  \u4f7f\u7528\u6b63\u6001\u987a\u5e8f\u8bc4\u4f30\uff0c\u8868\u8fbe\u5f0f\u9010\u6b65\u8bc4\u4f30\u4e3a0\uff1a  (test 0 (p))\n\n(if (= 0 0) 0 (p))\n\n(if #t 0 (p))\n\n0", 
+            "title": "1.1.5 \u8fc7\u7a0b\u5e94\u7528\u7684\u4ee3\u6362\u6a21\u578b"
+        }, 
+        {
+            "location": "/chp1/1/#116", 
+            "text": "ex1.6    \n Alyssa \u7684 new-if \u5b9a\u4e49\uff1a  (define (new-if predicate then-clause else-clause)\n    (cond (predicate then-clause)\n          (else else-clause)))  \u5148\u4f7f\u7528 new-if \u91cd\u5199\u5e73\u65b9\u6839\uff1a  (define (average x y) (/ (+ x y) 2))\n(define (square x) (* x x))\n(define (improve guess x) (average guess (/ x guess)))\n(define (good-enough? guess x) (  (abs (- (square guess) x)) 0.001))\n(define (sqrt-iter guess x)\n  (if (good-enough? guess x)\n      guess\n      (sqrt-iter (improve guess x) x)))\n(define (sqrt x) (sqrt-iter 1.0 x))\n(sqrt 9)\n(sqrt (+ 100 37))\n(sqrt (+ (sqrt 2) (sqrt 3)))\n(square (sqrt 1000))\n\n(define (new-if predicate then-clause else-clause)\n  (cond (predicate then-clause)\n        (else else-clause)))\n(new-if (= 2 3) 0 5)\n(new-if (= 1 1) 0 5)\n(define (new-sqrt-iter guess x)\n  (new-if (good-enough? guess x)\n          guess\n          (sqrt-iter (improve guess x) x)))\n(define (new-sqrt x) (new-sqrt-iter 1.0 x))\n(if (= (    sqrt 9)\n       (new-sqrt 9))\n    1 0)\n(if (= (    sqrt (+ 100 37))\n       (new-sqrt (+ 100 37)))\n    1 0)\n(if (= (    sqrt (+ (    sqrt 2) (    sqrt 3)))\n       (new-sqrt (+ (new-sqrt 2) (new-sqrt 3))))\n    1 0)\n(if (= (square (    sqrt 1000))\n       (square (new-sqrt 1000)))\n    1 0)  3.00009155413138  11.704699917758145  1.7739279023207892  1000.000369924366  5  0  1  1  1  1", 
+            "title": "1.1.6 \u6761\u4ef6\u8868\u8fbe\u5f0f\u548c\u8c13\u8bcd"
+        }, 
+        {
+            "location": "/chp1/1/#117", 
+            "text": "ex1.7    \n\u5f53\u8ba1\u7b97\u5c0f\u503c\u7684\u5e73\u65b9\u6839\u65f6\uff0c0.001\u7684\u7edd\u5bf9\u5bb9\u5dee\u975e\u5e38\u5927\u3002\u4f8b\u5982\uff0c\u5728\u6211\u4f7f\u7528\u7684\u7cfb\u7edf\u4e0a\uff0c\uff08sqrt 0.0001\uff09\u4ea7\u751f0.03220324381282134\u800c\u4e0d\u662f\u9884\u671f\u76840.01\uff08\u8bef\u5dee\u8d85\u8fc7200\uff05\uff09\u3002  (sqrt 0.0001)  0.03230844833048122  \u53e6\u4e00\u65b9\u9762\uff0c\u5bf9\u4e8e\u975e\u5e38\u5927\u7684radicand\u503c\uff0c\u673a\u5668\u7cbe\u5ea6\u4e0d\u80fd\u8868\u793a\u5927\u6570\u4e4b\u95f4\u7684\u5fae\u5c0f\u5dee\u5f02\u3002\u8be5\u7b97\u6cd5\u53ef\u80fd\u6c38\u8fdc\u4e0d\u4f1a\u7ec8\u6b62\uff0c\u56e0\u4e3a\u6700\u4f73\u731c\u6d4b\u7684\u5e73\u65b9\u4e0d\u4f1a\u5728radicand\u76840.001\u8303\u56f4\u5185\uff0c\u5e76\u4e14\u5c1d\u8bd5\u6539\u8fdb\u5b83\u5c06\u7ee7\u7eed\u4ea7\u751f\u76f8\u540c\u7684\u731c\u6d4b[\u5373\uff08\u6539\u8fdb\u731c\u6d4bx\uff09\u5c06\u7b49\u4e8e\u731c\u6d4b]\u3002\u5c1d\u8bd5(sqrt 1000000000000)[12\u4e2a0]\uff0c\u7136\u540e\u5c1d\u8bd5(sqrt 10000000000000)[13\u4e2a0]\u3002\u5728\u6211\u768464\u4f4d\u82f1\u7279\u5c14\u673a\u5668\u4e0a\uff0c12\u4e2a\u96f6\u70b9\u51e0\u4e4e\u7acb\u5373\u4ea7\u751f\u7b54\u6848\uff0c\u800c13\u4e2a\u96f6\u70b9\u8fdb\u5165\u65e0\u9650\u5faa\u73af\u3002  (sqrt 1000000000000)  1000000.0  (sqrt 10000000000000)   \u4f7f\u7528\u66ff\u4ee3\u7b56\u7565\uff0csqrt\u5bf9\u5c0f\u6570\u548c\u5927\u6570\u90fd\u6709\u6548\u3002  (define (good-enough? guess x) (= guess (improve guess x)))  (sqrt 100000000000000000000)  10000000000.0  (sqrt 0.00000000000000000009)  0.0000000003", 
+            "title": "1.1.7 \u5b9e\u4f8b\uff1a \u91c7\u7528\u725b\u987f\u6cd5\u6c42\u5e73\u65b9\u6839"
+        }, 
+        {
+            "location": "/chp1/1/#118", 
+            "text": "ex1.8     \n\u9996\u5148\uff0c\u5c06\u9898\u76ee\u7ed9\u5b9a\u7684\u7b97\u5f0f\u8f6c\u6362\u6210\u524d\u5e8f\u8868\u8fbe\u5f0f\uff1a  (/ (+ (/ x (square y)) (* 2 y))\n   3)  (define (cube x) (* x x x))\n\n(define (square x) (* x x))\n\n(define (cube-root x)(cube-root-iter 1.0 x))\n\n(define (cube-root-iter guess x)          \n    (if (good-enough? guess x)              \n        guess\n        (cube-root-iter (improve guess x) x)))\n\n(define (good-enough? guess x) (  (abs (- (cube guess) x)) 0.001))\n\n(define (improve guess x)(/ (+ (/ x (square guess)) (* 2 guess)) 3))\n\n(define (square x) (* x x))1 ]=  (cube-root (* 3 3 3))  (cube-root (* 3 3 3))  3.0000005410641766\n\n(cube-root (* 5 5 5))  5.000000000287929\n\n(cube-root (* 7 7 7))  7.000001795382107", 
+            "title": "1.1.8 \u8fc7\u7a0b\u4f5c\u4e3a\u9ed1\u7bb1\u62bd\u8c61"
+        }, 
+        {
+            "location": "/chp1/2/", 
+            "text": "", 
+            "title": "1.2 \u8fc7\u7a0b\u4e0e\u5b83\u4eec\u6240\u4ea7\u751f\u7684\u8ba1\u7b97"
+        }, 
+        {
+            "location": "/chp1/3/", 
+            "text": "", 
+            "title": "1.3 \u7528\u9ad8\u9636\u51fd\u6570\u505a\u62bd\u8c61"
+        }, 
+        {
+            "location": "/chp2/1/", 
+            "text": "2.1 \u6570\u636e\u62bd\u8c61\u5bfc\u5f15", 
+            "title": "2.1 \u6570\u636e\u62bd\u8c61\u5bfc\u5f15"
+        }, 
+        {
+            "location": "/chp2/1/#21", 
+            "text": "", 
+            "title": "2.1 \u6570\u636e\u62bd\u8c61\u5bfc\u5f15"
+        }, 
+        {
+            "location": "/chp2/2/", 
+            "text": "", 
+            "title": "2.2 \u5c42\u6b21\u6027\u6570\u636e\u548c\u95ed\u5305\u6027\u8d28"
+        }, 
+        {
+            "location": "/chp2/3/", 
+            "text": "", 
+            "title": "2.3 \u7b26\u53f7\u6570\u636e"
+        }, 
+        {
+            "location": "/chp2/4/", 
+            "text": "", 
+            "title": "2.4 \u62bd\u8c61\u6570\u636e\u7684\u591a\u91cd\u8868\u793a"
+        }, 
+        {
+            "location": "/chp2/5/", 
+            "text": "", 
+            "title": "2.5 \u5e26\u6709\u901a\u7528\u578b\u64cd\u4f5c\u7684\u7cfb\u7edf"
+        }, 
+        {
+            "location": "/chp3/1/", 
+            "text": "", 
+            "title": "3.1 \u8d4b\u503c\u548c\u5c40\u90e8\u72b6\u6001"
+        }, 
+        {
+            "location": "/chp3/2/", 
+            "text": "", 
+            "title": "3.2 \u6c42\u503c\u7684\u73af\u5883\u6a21\u578b"
+        }, 
+        {
+            "location": "/chp3/3/", 
+            "text": "", 
+            "title": "3.3 \u7528\u53d8\u52a8\u6570\u636e\u505a\u6a21\u62df"
+        }, 
+        {
+            "location": "/chp3/4/", 
+            "text": "", 
+            "title": "3.4 \u5e76\u53d1\uff1a\u65f6\u95f4\u662f\u4e00\u4e2a\u672c\u8d28\u95ee\u9898"
+        }, 
+        {
+            "location": "/chp3/5/", 
+            "text": "", 
+            "title": "3.5 \u6d41"
+        }, 
+        {
+            "location": "/chp4/1/", 
+            "text": "", 
+            "title": "4.1 \u5143\u5faa\u73af\u6c42\u503c\u5668"
+        }, 
+        {
+            "location": "/chp4/2/", 
+            "text": "", 
+            "title": "4.2 Scheme \u7684\u53d8\u5f62 -- \u60f0\u6027\u6c42\u503c"
+        }, 
+        {
+            "location": "/chp4/3/", 
+            "text": "", 
+            "title": "4.3 Scheme \u7684\u53d8\u5f62 -- \u975e\u786e\u5b9a\u6027\u6c42\u503c"
+        }, 
+        {
+            "location": "/chp4/4/", 
+            "text": "", 
+            "title": "4.4 \u903b\u8f91\u7a0b\u5e8f\u8bbe\u8ba1"
+        }, 
+        {
+            "location": "/chp5/1/", 
+            "text": "", 
+            "title": "5.1 \u5bc4\u5b58\u5668\u673a\u5668\u7684\u8bbe\u8ba1"
+        }, 
+        {
+            "location": "/chp5/2/", 
+            "text": "", 
+            "title": "5.2 \u4e00\u4e2a\u5bc4\u5b58\u5668\u673a\u5668\u6a21\u62df\u5668"
+        }, 
+        {
+            "location": "/chp5/3/", 
+            "text": "", 
+            "title": "5.3 \u5b58\u50a8\u5206\u914d\u548c\u5e9f\u6599\u6536\u96c6"
+        }, 
+        {
+            "location": "/chp5/4/", 
+            "text": "", 
+            "title": "5.4 \u663e\u5f0f\u63a7\u5236\u7684\u6c42\u503c\u5668"
+        }, 
+        {
+            "location": "/chp5/5/", 
+            "text": "", 
+            "title": "5.5 \u7f16\u8bd1"
+        }
+    ]
+}
