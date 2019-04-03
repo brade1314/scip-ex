@@ -11,7 +11,7 @@ theme:
         - scheme
 
 
-nav:
+pages:
     - 主页: index.md
     - 1.构造过程抽象: 
                - 1.1 程序设计的基本元素: chp1/1.md
