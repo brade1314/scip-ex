@@ -1,6 +1,6 @@
 site_name: scip-ex
 site_description: scip 解题集
-repo_url: https://github.com/brade1314/scip-ex/tree/master
+repo_url: https://github.com/brade1314/scip-ex/
 site_author: brade
 google_analytics: ['UA-135750432-1', 'sicp-ex.readthedocs.io']
 theme: 
