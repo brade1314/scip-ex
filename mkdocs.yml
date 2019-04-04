@@ -1,17 +1,15 @@
 site_name: scip-ex
 site_description: scip 解题集
-repo_url: https://github.com/brade1314/scip-ex/
 site_author: brade
+repo_url: https://github.com/brade1314/scip-ex/
 google_analytics: ['UA-135750432-1', 'sicp-ex.readthedocs.io']
 theme:
     name: readthedocs
-    highlightjs: true
+    custom_dir: 'custom_theme'
     hljs_languages:
         - yaml
         - scheme
-
-
-pages:
+nav:
     - 主页: index.md
     - 1.构造过程抽象:
                - 1.1 程序设计的基本元素: chp1/1.md
